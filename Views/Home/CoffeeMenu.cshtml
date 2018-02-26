@@ -1,0 +1,44 @@
+﻿<h1>Menu!</h1>
+<br /><br />
+
+<script>
+    function validate()
+    {
+        var regObject = {
+            name: document.getElementById("regName").value
+        };
+
+        if (regObject.name == "")
+        {
+            return false;
+        }
+    }
+</script>
+
+<form action="/Home/GetOptionByDescription" method="get">
+    <select name="Description">
+        <option value="Drink"> Beverages</option>
+        <option value="Book"> Books</option>
+        <option value="Phone"> Phones</option>
+        <option value="Food">Food</option>
+    </select>
+    <input type="submit" value="Search" />
+</form>
+
+<br /><br />
+
+<table class="table">
+   <tr style="font-weight:bold">
+       <td>Name</td>       
+       <td>Quantity</td>
+       <td>Price</td>
+   </tr>
+    @foreach(var C in ViewBag.CoffeeItems)
+    {
+        <tr>
+            <td>@C.Name</td>           
+            <td>@C.Quantity</td>
+            <td>$@C.Price</td>
+        </tr>
+    }
+</table>

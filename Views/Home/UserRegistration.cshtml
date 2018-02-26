@@ -1,0 +1,21 @@
+﻿@Html.Raw(TempData["msg"])
+
+@model Lab20.Models.User
+
+<script src="../../FormValidation.js" language="javascript" type="text/javascript"></script>
+
+<h2>Please fill the form to register</h2><br /><br />
+
+<form action="/Home/AddUser" method="post">
+    <h5>First Name </h5>
+    <input type="text" name="FirstName" required/><br />
+    <h5>Last Name</h5>
+    <input type="text" name="LastName" required/><br />
+    <h5>Email</h5>
+    <input type="email" name="Email" required/><br />
+    <h5>10 digit Phone Number</h5>
+    <input type="text" name="PhoneNumber" required pattern="^[\d]{10}$"/><br />
+    <h5>Password</h5>
+    <input type="password" name="Password" required/><br /><br />
+    <input type="submit" value="Submit" />
+</form>
